@@ -54,6 +54,6 @@ function interp_parse(s::AbstractString, unescape::Function, printer::Function)
 end
 
 interp_parse(s::AbstractString, u::Function) = interp_parse(s, u, print)
-interp_parse(s::AbstractString) = interp_parse(s, x -> isvalid(UTF8String,unescape_string(x)) ? unescape_string(x) : error("Invalid UTF-8 sequence"))
+interp_parse(s::AbstractString) = interp_parse(s, x -> isvalid(String,unescape_string(x)) ? unescape_string(x) : error("Invalid UTF-8 sequence"))
 
 end
